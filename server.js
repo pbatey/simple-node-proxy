@@ -11,7 +11,14 @@ if (process.argv.length <= 2) {
 var address = process.argv[2];
 var port = 8080;
 
-var proxy = httpProxy.createProxyServer({});
+var options = {
+  target:address,
+  timeout:2000,
+  changeOrigin:true
+};
+
+var proxy = httpProxy.createProxyServer(options);
+
 proxy.on('error', function (err, req, res) {
   res.writeHead(500, {
     'Content-Type': 'text/plain'
@@ -25,5 +32,6 @@ var server = http.createServer(function(req, res) {
   proxy.web(req, res, { target: address, timeout:2000 });
 });
 
+console.log('options: ' + JSON.stringify(options, null, 2));
 console.log('listening on port %s...', port);
 server.listen(port);

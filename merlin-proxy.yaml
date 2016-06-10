@@ -8,7 +8,7 @@ spec:
   restartPolicy: Never
   containers:
   - name: merlin-proxy
-    image: "pbatey/simple-node-proxy"
+    image: "pbatey/simple-node-proxy:latest"
     command: ["npm", "start", "http://mwsprod.ccp.xcal.tv:9003"]
 
 ---
