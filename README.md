@@ -2,7 +2,7 @@ Simple Node.js HTTP Proxy
 =========================
 
 Due to firewall constraints I needed to proxy requests through a Kubernetes Cluster. I decided using
-node.js was the simplest way to create a Docker image.
+node.js was the simplest way to do it.
 
 It's a very simple node.js server application that can be run locally using `npm`:
 
